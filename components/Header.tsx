@@ -1,9 +1,11 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import Image from "next/image";
 import amazonLogo from "../public/amazon-logo-2.webp";
 import { BiCart } from "react-icons/bi";
 import { CiSearch } from "react-icons/ci";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const itemList = [
   "All",
@@ -19,6 +21,11 @@ const itemList = [
   "Health, Household & Personal Care",
 ];
 const Header = () => {
+  const [query, setQuery] = useState<string>("");
+  const router = useRouter();
+  const searchHandler = () => {
+    router.push(`/search/${query}`);
+  };
   return (
     <>
       <div className="bg-[#131921] text-white">
@@ -28,11 +35,16 @@ const Header = () => {
           </div>
           <div className="w-[60%] flex items-center">
             <input
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
               type="text"
               placeholder="Search Amazon.in"
               className="w-full p-2 rounded-l-md text-black outline-none"
             />
-            <div className="bg-[#FEBD69] p-2 rounded-r-md">
+            <div
+              onClick={searchHandler}
+              className="bg-[#FEBD69] p-2 rounded-r-md"
+            >
               <CiSearch size={"24px"} className="text-black " />
             </div>
           </div>
