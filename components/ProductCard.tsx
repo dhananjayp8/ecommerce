@@ -1,10 +1,17 @@
 import React from "react";
 import Image from "next/image";
 import Ratings from "./shared/Ratings";
+import { useRouter } from "next/navigation";
 const ProductCard = ({ product }: { product: any }) => {
+  const router = useRouter();
   return (
     <div>
-      <div className="cursor-pointer">
+      <div
+        className="cursor-pointer"
+        onClick={() => {
+          router.push(`/product/${product.id}`);
+        }}
+      >
         <div className="h-[250px] rounded-md overflow-hidden">
           <Image
             className="p-8"
