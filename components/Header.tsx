@@ -43,7 +43,7 @@ const Header = () => {
             />
             <div
               onClick={searchHandler}
-              className="bg-[#FEBD69] p-2 rounded-r-md"
+              className="bg-[#FEBD69] p-2 rounded-r-md cursor-pointer hover:bg-[#ffad43]"
             >
               <CiSearch size={"24px"} className="text-black " />
             </div>
