@@ -47,7 +47,7 @@ const SingleProduct = ({ singleProduct }: { singleProduct: any }) => {
                   </div>
                 </div>
               </div>
-              <AddToCartContainer />
+              <AddToCartContainer product={product} />
             </div>
           );
         })}
