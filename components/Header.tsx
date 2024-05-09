@@ -6,6 +6,8 @@ import { BiCart } from "react-icons/bi";
 import { CiSearch } from "react-icons/ci";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useAppSelector } from "@/lib/supabase/hooks/redux";
+import { getCart } from "@/redux/cartSlice";
 
 const itemList = [
   "All",
@@ -23,6 +25,7 @@ const itemList = [
 const Header = () => {
   const [query, setQuery] = useState<string>("");
   const router = useRouter();
+  const cart = useAppSelector(getCart);
   const searchHandler = () => {
     router.push(`/search/${query}`);
   };
@@ -58,7 +61,7 @@ const Header = () => {
               <h1 className="font-medium text-sm">& Orders</h1>
             </div>
             <div>
-              <p className="relative top-3 left-5">0</p>
+              <p className="relative top-3 left-5">{cart.length}</p>
               <div className="flex cursor-pointer">
                 <div>
                   <BiCart size={"40px"} />

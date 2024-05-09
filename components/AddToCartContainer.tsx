@@ -1,7 +1,10 @@
 import React from "react";
 import prime from "../public/prime-logo.png";
 import Image from "next/image";
-const AddToCartContainer = () => {
+import { useAppDispatch } from "@/lib/supabase/hooks/redux";
+import { addToCart } from "@/redux/cartSlice";
+const AddToCartContainer = ({ product }: { product: any }) => {
+  const dispatch = useAppDispatch();
   return (
     <div className="border border-gray-300 rounded-md h-fit">
       <div className="p-4">
@@ -20,7 +23,12 @@ const AddToCartContainer = () => {
         <p className="text-[#147C8F] my-2">
           Deliver to Dhananjay - Jalgaon 425201
         </p>
-        <button className="bg-[#FFD814] w-full rounded-full py-1">
+        <button
+          onClick={() => {
+            dispatch(addToCart(product));
+          }}
+          className="bg-[#FFD814] w-full rounded-full py-1"
+        >
           Add to Cart
         </button>
         <button className="bg-[#FFA41C] w-full rounded-full py-1 my-2">
