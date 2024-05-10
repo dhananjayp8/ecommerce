@@ -1,5 +1,6 @@
 import React from "react";
 import SubTotal from "./SubTotal";
+import { useRouter } from "next/navigation";
 
 const ProceedToBuy = ({
   length,
@@ -8,6 +9,7 @@ const ProceedToBuy = ({
   length: number;
   totalPrice: number;
 }) => {
+  const router = useRouter();
   return (
     <div className="w-[20%] h-fit border border-gray-300 ml-4">
       <div className="p-4 text-sm">
@@ -20,7 +22,12 @@ const ProceedToBuy = ({
         </p>
 
         <SubTotal left={true} length={length} totalPrice={totalPrice} />
-        <button className="bg-[#FFD814] w-full py-1 rounded-md shadow-md my-3">
+        <button
+          onClick={() => {
+            router.push("/checkout");
+          }}
+          className="bg-[#FFD814] w-full py-1 rounded-md shadow-md my-3"
+        >
           Proceed to Buy
         </button>
       </div>
