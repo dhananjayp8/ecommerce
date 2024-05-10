@@ -1,6 +1,7 @@
 "use client";
 import { useAppDispatch } from "@/lib/supabase/hooks/redux";
 import {
+  clearAllCart,
   decrementQuantity,
   incrementQuantity,
   removeFromCart,
@@ -20,8 +21,8 @@ const ShoppingCart = ({
   const dispatch = useAppDispatch();
 
   return (
-    <div className="">
-      <div className="py-4 flex justify-between border-b border-gray-300 py-5 ">
+    <div className="w-[70%]">
+      <div className="py-5 flex justify-between border-b border-gray-300 ">
         <h1 className="font-bold text-2xl ">Shopping Cart</h1>
         <h1 className="font-medium">Price</h1>
       </div>
@@ -82,6 +83,14 @@ const ShoppingCart = ({
           </div>
         );
       })}
+      <h1
+        onClick={() => {
+          dispatch(clearAllCart());
+        }}
+        className="text-red-600 font-bold cursor-pointer py-2"
+      >
+        CLEAR ALL
+      </h1>
       <SubTotal left={false} length={cart.length} totalPrice={totalPrice} />
     </div>
   );
