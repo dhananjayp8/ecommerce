@@ -48,7 +48,7 @@ const ShoppingCart = ({
                   onClick={() => {
                     dispatch(removeFromCart(product.id));
                   }}
-                  className="font-bold text-red-600 cursor-pointer w-fit"
+                  className="font-bold text-red-600 cursor-pointer border border-gray-400 w-fit"
                 >
                   REMOVE
                 </h1>

@@ -21,11 +21,18 @@ const OrderSummary = () => {
       items: cart,
       email: user?.email,
     });
+    console.log(checkoutSession);
+    const result = await stripe?.redirectToCheckout({
+      sessionId: checkoutSession.data.id,
+    });
+    if (result?.error) {
+      console.log(result.error.message);
+    }
   };
   return (
     <div className=" border border-gray p-4 mt-5 h-fit">
       <div>
-        <h1 className="font-bold">Order Summary</h1>
+        <h1 className="font-bold text-xl mb-5">Order Summary</h1>
         <div className="text-xs">
           <div className="flex items-center justify-between">
             <p>Items</p>
