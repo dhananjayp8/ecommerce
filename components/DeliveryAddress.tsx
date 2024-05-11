@@ -21,7 +21,7 @@ const DeliveryAddress = () => {
           </p>
         </div>
       </div>
-      <div className="flex  w-[70%] mx-auto border-b border-gray-500 py-2">
+      <div className=" border-b border-gray-500 py-2">
         <div className="flex text-black w-[50%] justify-between">
           <h1 className="font-bold  text-black text-lg">
             2. Items and Delivery
@@ -30,15 +30,17 @@ const DeliveryAddress = () => {
         {cart.map((product: any) => {
           return (
             <div className="my-4">
-              <div className="flex text-black my">
+              <div className="flex text-black ">
                 <Image
                   src={product.image}
                   alt={product.title}
-                  width={150}
-                  height={150}
+                  width={100}
+                  height={100}
                 />
-                <h1 className="font-bold">{product.title}</h1>
-                <p className="text-2xl font-bold py-2">{product.price}</p>
+                <div className="ml-4">
+                  <h1 className="font-bold">{product.title}</h1>
+                  <p className="text-2xl font-bold py-2">{product.price}</p>
+                </div>
               </div>
             </div>
           );
