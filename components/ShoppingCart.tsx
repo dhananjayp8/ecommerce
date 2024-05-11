@@ -29,7 +29,10 @@ const ShoppingCart = ({
 
       {cart.map((product: any) => {
         return (
-          <div className=" py-4 mt-4 flex justify-between  border-b border-gray-200">
+          <div
+            key={product.id}
+            className=" py-4 mt-4 flex justify-between  border-b border-gray-200"
+          >
             <div className="flex">
               <div>
                 <Image

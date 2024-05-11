@@ -11,7 +11,7 @@ const HomePage = () => {
   useEffect(() => {
     getMensClothing();
     getWomensClothing();
-  }, []);
+  }, [getMensClothing, getWomensClothing]);
   console.log(mensProduct);
   return (
     <div>
@@ -26,10 +26,10 @@ const HomePage = () => {
         height={1000}
         alt="banner"
       />
-      <div className="w-[80%] mx-auto grid grid-cols-4 gap-2 relative -top-64">
+      <div className="w-[90%] mx-auto grid grid-cols-4 gap-2 relative -top-64">
         {mensProduct.map((product: any) => {
           return (
-            <div>
+            <div key={product.id}>
               <CategorywiseProduct product={product} />
             </div>
           );
@@ -37,7 +37,7 @@ const HomePage = () => {
 
         {womensProduct.map((product: any) => {
           return (
-            <div>
+            <div key={product.id}>
               <CategorywiseProduct product={product} />
             </div>
           );

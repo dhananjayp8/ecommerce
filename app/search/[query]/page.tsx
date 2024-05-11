@@ -4,13 +4,13 @@ import { useParams } from "next/navigation";
 import { useSupabase } from "@/lib/supabase/hooks/useSupabase";
 import SearchResults from "@/components/SearchResults";
 
-const page = () => {
+const SearchPage = () => {
   const { query } = useParams();
   //const { products, getDataFromSupabase } = useSupabase();
   const { filterData, getFilteredData } = useSupabase();
   useEffect(() => {
     getFilteredData(query.toString());
-  }, []);
+  }, [query, getFilteredData]);
   console.log(filterData);
 
   return (
@@ -20,4 +20,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default SearchPage;

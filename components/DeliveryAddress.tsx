@@ -29,7 +29,7 @@ const DeliveryAddress = () => {
         </div>
         {cart.map((product: any) => {
           return (
-            <div className="my-4">
+            <div key={product.id} className="my-4">
               <div className="flex text-black ">
                 <Image
                   src={product.image}
