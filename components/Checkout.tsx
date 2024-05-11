@@ -5,7 +5,14 @@ import OrderSummary from "./OrderSummary";
 import Image from "next/image";
 import { FaLock } from "react-icons/fa6";
 import amazonLogo from "../public/amazon-logo.png";
+import { useAppSelector } from "@/lib/supabase/hooks/redux";
+import { getCart } from "@/redux/cartSlice";
 const Checkout = () => {
+  const cart = useAppSelector(getCart);
+  let totalPrice = 0;
+  cart.forEach((item: any) => {
+    totalPrice += item.price * item.quantity;
+  });
   return (
     <div className="absolute top-0 w-full h-full p-10  bg-white">
       <div className=" flex w-[70%] mx-auto items-center border-b border-gray-400  pb-5 justify-between">
@@ -26,7 +33,7 @@ const Checkout = () => {
       </div>
       <div className="flex w-[70%] mx-auto text-black">
         <DeliveryAddress />
-        <OrderSummary />
+        <OrderSummary totalPrice={totalPrice} />
       </div>
     </div>
   );
