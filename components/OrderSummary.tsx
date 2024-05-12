@@ -30,29 +30,62 @@ const OrderSummary = ({ totalPrice }: { totalPrice: number }) => {
     }
   };
   return (
-    <div className=" border border-gray p-4 mt-5 h-fit">
+    // <div className=" border border-gray p-4 mt-5 h-fit">
+    //   <div>
+    //     <h1 className="font-bold text-xl mb-5">Order Summary</h1>
+    //     <div className="text-xs">
+    //       <div className="flex items-center justify-between">
+    //         <p>Items</p>
+    //         <p>{totalPrice}</p>
+    //       </div>
+    //       <div className="flex items-center justify-between">
+    //         <p>Delivery</p>
+    //         <p>$40</p>
+    //       </div>
+    //       <div className="flex items-center justify-between">
+    //         <p>Total</p>
+    //         <p>{`$${totalPrice + 40}`}</p>
+    //       </div>
+    //       <div className="flex items-center justify-between">
+    //         <p>Promotion Applied</p>
+    //         <p>-$40</p>
+    //       </div>
+    //       <div className="flex justify-between text-2xl font-bold text-[#B12704] py-2 border-t border-b border-gray-300 my-1">
+    //         <h1>Total Order :</h1>
+    //         <h1>{totalPrice}</h1>
+    //       </div>
+    //     </div>
+    //     <button
+    //       onClick={createStripeSession}
+    //       className="bg-[#FFD814] w-full rounded-md px-4 py-1 my-3"
+    //     >
+    //       Place Your Order Now
+    //     </button>
+    //   </div>
+    // </div>
+    <div className="border border-gray p-4 mt-5 h-fit ml-5">
       <div>
         <h1 className="font-bold text-xl mb-5">Order Summary</h1>
         <div className="text-xs">
           <div className="flex items-center justify-between">
-            <p>Items</p>
+            <p>items</p>
             <p>{totalPrice}</p>
           </div>
           <div className="flex items-center justify-between">
-            <p>Delivery</p>
-            <p>$40</p>
+            <p>Delivery:</p>
+            <p>₹40.00</p>
           </div>
           <div className="flex items-center justify-between">
-            <p>Total</p>
-            <p>{`$${totalPrice + 40}`}</p>
+            <p>Total:</p>
+            <p>{totalPrice}</p>
           </div>
           <div className="flex items-center justify-between">
-            <p>Promotion Applied</p>
-            <p>-$40</p>
+            <p>Promotion Applied:</p>
+            <p>-₹40.00</p>
           </div>
           <div className="flex justify-between text-2xl font-bold text-[#B12704] py-2 border-t border-b border-gray-300 my-1">
-            <h1>Total Order :</h1>
-            <h1>{totalPrice}</h1>
+            <h1>Order Total: </h1>
+            <h1>${totalPrice}</h1>
           </div>
         </div>
         <button
